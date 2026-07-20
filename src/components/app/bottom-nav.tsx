@@ -21,7 +21,7 @@ export function BottomNav() {
           return (
             <Link
               key={it.to}
-              to={it.to}
+              to={it.to as "/"}
               className={`flex flex-col items-center gap-1 py-2.5 text-[11px] transition-colors ${active ? "text-primary" : "text-muted-foreground"}`}
             >
               <Icon className={`w-5 h-5 ${active ? "stroke-[2.4]" : ""}`} />
