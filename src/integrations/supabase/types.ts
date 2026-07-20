@@ -14,7 +14,292 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      attendance: {
+        Row: {
+          attendance_date: string
+          created_at: string
+          id: string
+          remarks: string | null
+          status: string
+          student_id: string
+          teacher_id: string
+          updated_at: string
+        }
+        Insert: {
+          attendance_date?: string
+          created_at?: string
+          id?: string
+          remarks?: string | null
+          status?: string
+          student_id: string
+          teacher_id: string
+          updated_at?: string
+        }
+        Update: {
+          attendance_date?: string
+          created_at?: string
+          id?: string
+          remarks?: string | null
+          status?: string
+          student_id?: string
+          teacher_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "attendance_student_id_fkey"
+            columns: ["student_id"]
+            isOneToOne: false
+            referencedRelation: "students"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      fees_payments: {
+        Row: {
+          created_at: string
+          discount: number
+          fees_amount: number
+          fees_month: string
+          id: string
+          late_fees: number
+          payment_date: string
+          payment_mode: string
+          receipt_number: string | null
+          remarks: string | null
+          student_id: string
+          teacher_id: string
+          total_amount: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          discount?: number
+          fees_amount?: number
+          fees_month: string
+          id?: string
+          late_fees?: number
+          payment_date?: string
+          payment_mode?: string
+          receipt_number?: string | null
+          remarks?: string | null
+          student_id: string
+          teacher_id: string
+          total_amount?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          discount?: number
+          fees_amount?: number
+          fees_month?: string
+          id?: string
+          late_fees?: number
+          payment_date?: string
+          payment_mode?: string
+          receipt_number?: string | null
+          remarks?: string | null
+          student_id?: string
+          teacher_id?: string
+          total_amount?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fees_payments_student_id_fkey"
+            columns: ["student_id"]
+            isOneToOne: false
+            referencedRelation: "students"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      notices: {
+        Row: {
+          attachment_url: string | null
+          category: string
+          created_at: string
+          description: string | null
+          id: string
+          notice_date: string
+          teacher_id: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          attachment_url?: string | null
+          category?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          notice_date?: string
+          teacher_id: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          attachment_url?: string | null
+          category?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          notice_date?: string
+          teacher_id?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          class_logo_url: string | null
+          class_name: string
+          created_at: string
+          email: string | null
+          id: string
+          phone: string | null
+          teacher_name: string
+          updated_at: string
+        }
+        Insert: {
+          class_logo_url?: string | null
+          class_name?: string
+          created_at?: string
+          email?: string | null
+          id: string
+          phone?: string | null
+          teacher_name?: string
+          updated_at?: string
+        }
+        Update: {
+          class_logo_url?: string | null
+          class_name?: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          phone?: string | null
+          teacher_name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      sms_log: {
+        Row: {
+          created_at: string
+          id: string
+          message: string
+          message_type: string
+          recipient_count: number
+          recipient_ids: string[]
+          status: string
+          teacher_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          message: string
+          message_type?: string
+          recipient_count?: number
+          recipient_ids?: string[]
+          status?: string
+          teacher_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          message?: string
+          message_type?: string
+          recipient_count?: number
+          recipient_ids?: string[]
+          status?: string
+          teacher_id?: string
+        }
+        Relationships: []
+      }
+      students: {
+        Row: {
+          address: string | null
+          admission_date: string | null
+          batch_name: string | null
+          created_at: string
+          date_of_birth: string | null
+          division: string | null
+          email: string | null
+          father_name: string | null
+          gender: string | null
+          id: string
+          mobile_number: string | null
+          monthly_fees: number | null
+          mother_name: string | null
+          parent_mobile_number: string | null
+          parent_name: string | null
+          photo_url: string | null
+          remarks: string | null
+          roll_number: string | null
+          school_name: string | null
+          standard: string | null
+          status: string
+          student_name: string
+          subjects: string | null
+          teacher_id: string
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          admission_date?: string | null
+          batch_name?: string | null
+          created_at?: string
+          date_of_birth?: string | null
+          division?: string | null
+          email?: string | null
+          father_name?: string | null
+          gender?: string | null
+          id?: string
+          mobile_number?: string | null
+          monthly_fees?: number | null
+          mother_name?: string | null
+          parent_mobile_number?: string | null
+          parent_name?: string | null
+          photo_url?: string | null
+          remarks?: string | null
+          roll_number?: string | null
+          school_name?: string | null
+          standard?: string | null
+          status?: string
+          student_name: string
+          subjects?: string | null
+          teacher_id: string
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          admission_date?: string | null
+          batch_name?: string | null
+          created_at?: string
+          date_of_birth?: string | null
+          division?: string | null
+          email?: string | null
+          father_name?: string | null
+          gender?: string | null
+          id?: string
+          mobile_number?: string | null
+          monthly_fees?: number | null
+          mother_name?: string | null
+          parent_mobile_number?: string | null
+          parent_name?: string | null
+          photo_url?: string | null
+          remarks?: string | null
+          roll_number?: string | null
+          school_name?: string | null
+          standard?: string | null
+          status?: string
+          student_name?: string
+          subjects?: string | null
+          teacher_id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
